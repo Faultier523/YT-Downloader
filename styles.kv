@@ -1,0 +1,74 @@
+MDFloatLayout:
+    md_bg_color: 228/255, 228/255, 228/255, 1
+    MDIconButton:
+        id: logo
+        icon: "youtube"
+        user_font_size: "150sp"
+        pos_hint: {"center_x": .5, "center_y": .8}
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+    # MDLabel:
+    #     id: titel
+    #     text: "YT-Downloader"
+    #     pos_hint: {"center_x": .5, "center_y": 2}
+    #     font_size: "40sp"
+    #     halign: "center"
+    #     text_color: 0, 0, 0, 1
+
+
+    MDFloatLayout:
+        size_hint: .9, .08
+        pos_hint: {"center_x": .5, "center_y": .5}
+        canvas:
+            Color:
+                rgba: 128/255, 128/255, 0, 0
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [10]
+        TextInput:
+            id: link
+            hint_text: "YT-Link"
+            pos_hint: {"center_x": .5, "center_y": 0}
+            size_hint: .9, 1
+            multiline: False
+            hight: self.minimum_height
+            cursor_color: 1/2, 1/2, 1, 1
+            cursor_width: "1sp"
+            background_color: 1, 1, 1, 1
+            padding: 10
+            font_size: "15sp"
+        Button:
+            text: "Video-Download"
+            size_hint: .4, 1
+            pos_hint: {"center_x": .5, "center_y": -2.5}
+            background_color: 0, 0, 0, 0
+            font_size: "20sp"
+            color: 0, 0, 0, 1
+            on_release:
+                app.downloadV(link)
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+
+        Button:
+            text: "Audio-Download"
+            size_hint: .4, 1
+            pos_hint: {"center_x": .5, "center_y": -1}
+            background_color: 0, 0, 0, 0
+            font_size: "20sp"
+            color: 0, 0, 0, 1
+            on_release:
+                app.downloadA(link)
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+            
